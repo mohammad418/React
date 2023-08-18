@@ -1,140 +1,51 @@
-function CourseList(){
-    return(
-        <div>
-            <div>
-                <h1>My Courses (3)</h1> 
-                <div className="course-status">
-                    <div>All</div>
-                    <div>Active</div>
-                    <div>Completed</div>
-                    <div>UpComing</div>
-                </div>  
-            </div>
-            <div className="course-list">
-                <div className="course-item">
-                    <div className="course-item__img">
-                        <img src="/public/images/img1.jpg" alt="" className="img" />
-                    </div>
-                    <div className="course-item__detail">
-                        <div className="course-item__body">
-                            <div>
-                                <p className="title">English Lecture</p>
-                                <p className="desc">Language Lessons With The Most Popular Teachers</p>
-                            </div> 
-                            <span className="rate">
-                                ⭐️
-                                4.5
-                            </span>
-                        </div>
-                        <div className="course-item__footer">
-                            <div className="tags">
-                                <span className="badge badge--secondary">React.js</span>
-                            </div>
-                            <div className="caption">
-                                <div className="date">
-                                    {new Date().toLocaleDateString("en-Us",{
-                                        year:"numeric",
-                                        month:"short",
-                                        day:"numeric"
-                                    })}
-                                </div>
-                                <span className="badge badge--secondary">
-                                    Completed
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                                
-                </div>
-                <div className="course-item">
-                    <div className="course-item__img">
-                        <img src="/public/images/img2.jpg" alt="" className="img" />
-                    </div>
-                    <div className="course-item__detail">
-                        <div className="course-item__body">
-                            <div>
-                                <p className="title">
-                                    Design Strategy
-                                </p>
-                                <p className="desc">
-                                    Lesson On Planning Design Concept And Proper Planning Of Work
-                                </p>
-                            </div>
-                                
-                            <span className="rate">
-                                ⭐️
-                                3.9
-                            </span>
-                        </div>
-                        <div className="course-item__footer">
-                            <div className="tags">
-                                <span className="badge badge--secondary">
-                                    React.js
-                                </span>
-                                <span className="badge badge--secondary">
-                                    React.js
-                                </span>
-                            </div>
-                            <div className="caption">
-                                <div className="date">
-                                    {new Date().toLocaleDateString("en-Us",{
-                                        year:"numeric",
-                                        month:"short",
-                                        day:"numeric"
-                                    })}
-                                </div>
-                                <span className="badge badge--danger">
-                                    UpComing
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="course-item">
-                    <div className="course-item__img">
-                        <img src="/public/images/img3.jpg" alt="" className="img" />
-                    </div>
-                    <div className="course-item__detail">
-                        <div className="course-item__body">
-                            <div>
-                                <p className="title">Business Lecture</p>
-                                <p className="desc">Lecturs On How To Build Your Business Safely Without Fare Of New Projects</p>
-                            </div>
-                            <span className="rate">
-                                ⭐️
-                                4.2
-                            </span>
-                        </div>
-                        <div className="course-item__footer">
-                            <div className="tags">
-                                <span className="badge badge--secondary">
-                                    React.js
-                                </span>
-                                <span className="badge badge--secondary">
-                                    Node.js
-                                </span>
-                            </div>
-                            <div className="caption">
-                                <div className="date">
-                                    {new Date().toLocaleDateString("en-Ir",{
-                                      month:"short"  ,
-                                      year:"numeric",
-                                      day:"numeric",
-                                    })}
-                                </div>
-                                <span className="badge badge--primary">
-                                    Active
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                                
-                </div>
-                <p>Course Result:</p>
-                <p>You have successfully passed 33% of your courses.</p>
-            </div>
+import CourseCard from "./CourseCard";
+
+const courses = [
+  {
+    id: 0,
+    imgUrl: "/public/images/img1.jpg",
+    title: "English Lecture",
+    description: "Language Lessons With The Most Popular Teachers",
+    rate: "⭐️ 4.5",
+    start: "2023/05/04",
+  },
+  {
+    id: 1,
+    imgUrl: "/public/images/img2.jpg",
+    title: "Design Strategy",
+    description:
+      "Lesson On Planning Design Concept And Proper Planning Of Work",
+    rate: "⭐️ 3.9",
+    start: "2023/07/01",
+  },
+  {
+    id: 2,
+    imgUrl: "/public/images/img3.jpg",
+    title: "Business Lecture",
+    description:
+      "Lecturs On How To Build Your Business Safely Without Fare OfNew Projects",
+    rate: "⭐️ 4.2",
+    start: "2021/01/01",
+  },
+];
+
+function CourseList() {
+  return (
+    <div>
+      <div>
+        <h1>My Courses (3)</h1>
+        <div className="course-status">
+          <div>All</div>
+          <div>Active</div>
+          <div>Completed</div>
+          <div>UpComing</div>
+        </div>
+      </div>
+      {courses.map((course) => {
+        return <CourseCard key={course.id} course={course} />;
+      })}
     </div>
-    )
+  );
 }
 
 export default CourseList;
